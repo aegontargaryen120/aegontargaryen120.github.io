@@ -1,33 +1,131 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Aegon's Github Page</title>
-    <style type="text/css">
-      body {
-        font: 'Nunito';
-      }
-    </style>
-    <script>
-      function goToMySubStack() {
-        window.location.href = "https://aegontargaryen120.substack.com/?r=91o3v6&utm_campaign=pub-share-checklist";
-      }
-    </script>
-  </head>
-  <body topmargin="100" leftmargin="100">
-    <h1>Welcome</h1>
-    <p>Welcome to my GitHub Page! You will most likely be redirected here because of a link on <a href="https://substack.com/@naad1234">SubStack</a> or link on one of my repos README. This site will not be of much help to you unless you wish to be redirected to my internet presences.</p>
-    <hr>
-    <h1>About</h1>
-    <p>This is my <a href="https://pages.github.com">GitHub Pages</a> site.</p>
-    <hr>
-    <h1>SubStack connections</h1>
-    <p>My SubStack publication is <a href="https://aegontargaryen120.substack.com">Aegon's SubStack</a>, where I post at least once every week with fiction stories.</p>
-    <button onclick="goToMySubStack()">Subscribe!</button>
-    <hr>
-    <h2>Index of <a href="https://aegontargaryen120.substack.com/">The House That Held A God</a> articles</h2>
-    <ol type="1">
-      <li>Part 1: <a href="https://aegontargaryen120.substack.com/p/the-house-that-held-a-god-pt-1?r=91o3v6&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true">here</a></li>
-    </ol>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aegon Targaryen — writing, programming, worldbuilding, and assorted intellectual mischief.">
+  <title>Aegon Targaryen | Words Forged in Fire</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Aegon Targaryen home">
+        <span class="brand-name">AEGON TARGARYEN</span>
+        <span class="brand-tagline">WORDS FORGED IN FIRE</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="writing.html">Writing</a>
+        <a href="projects.html">Projects</a>
+        <a href="worldbuilding.html">Worldbuilding</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow">Writer · Programmer · Worldbuilder</p>
+        <h1>Words forged<br>in fire.</h1>
+        <p class="hero-lede">
+          Fiction, essays, programming, worldbuilding, and whatever else
+          survives contact with an overactive imagination.
+        </p>
+        <div class="actions">
+          <a class="button button-dark" href="https://aegontargaryen120.substack.com/">Read on SubStack</a>
+          <a class="button button-light" href="writing.html">Explore the archive</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container featured">
+      <div class="section-heading">
+        <p class="eyebrow">Featured series</p>
+        <h2>The House That Held A God</h2>
+      </div>
+
+      <article class="feature-card">
+        <div class="feature-art" aria-hidden="true">
+          <span>HHG</span>
+        </div>
+        <div class="feature-copy">
+          <p class="meta">FICTION · SERIALISED</p>
+          <h3>A house. A god. A man who probably should have known better.</h3>
+          <p>
+            Follow the continuing story of <em>The House That Held A God</em>,
+            published on Aegon's SubStack.
+          </p>
+          <a class="text-link" href="series/house-that-held-a-god.html">Explore the series <span>→</span></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="section section-rule">
+      <div class="container">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">The archive</p>
+            <h2>Things I make.</h2>
+          </div>
+          <p class="section-note">A small corner of the internet for large amounts of nonsense.</p>
+        </div>
+
+        <div class="card-grid">
+          <a class="topic-card" href="writing.html">
+            <span class="card-number">01</span>
+            <h3>Writing</h3>
+            <p>Stories, essays, notes, and the occasional literary catastrophe.</p>
+            <span class="text-link">Enter →</span>
+          </a>
+          <a class="topic-card" href="projects.html">
+            <span class="card-number">02</span>
+            <h3>Programming</h3>
+            <p>Languages, compilers, operating systems, and experiments in making computers obey.</p>
+            <span class="text-link">Enter →</span>
+          </a>
+          <a class="topic-card" href="worldbuilding.html">
+            <span class="card-number">03</span>
+            <h3>Worldbuilding</h3>
+            <p>Kingdoms, histories, civilizations, maps, and inconveniently detailed lore.</p>
+            <span class="text-link">Enter →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container newsletter-inner">
+        <div>
+          <p class="eyebrow">The publication</p>
+          <h2>Words Forged in Fire</h2>
+          <p>Fiction and other written mischief, published on SubStack.</p>
+        </div>
+        <a class="button button-dark" href="https://aegontargaryen120.substack.com/">Visit the publication</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <span class="brand-name">AEGON TARGARYEN</span>
+        <span class="footer-tagline">Words forged in fire.</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/aegontargaryen120">GitHub</a>
+        <a href="https://aegontargaryen120.substack.com/">SubStack</a>
+      </div>
+      <small>© <span id="year"></span> Aegon Targaryen</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
