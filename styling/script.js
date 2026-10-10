@@ -1,67 +1,111 @@
-const themeToggle = document.querySelector(".theme-toggle");
 const root = document.documentElement;
+const themeToggle = document.querySelector(".theme-toggle");
 
 const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme) {
     root.dataset.theme = savedTheme;
-} else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+} else if (
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
     root.dataset.theme = "dark";
 }
 
 function updateThemeIcon() {
     if (!themeToggle) return;
 
-    const isDark = root.dataset.theme === "dark";
-    themeToggle.textContent = isDark ? "☀" : "☾";
+    const dark = root.dataset.theme === "dark";
+
+    themeToggle.textContent = dark ? "☀" : "☾";
+
     themeToggle.setAttribute(
         "aria-label",
-        isDark ? "Switch to light mode" : "Switch to dark mode"
+        dark
+            ? "Switch to light mode"
+            : "Switch to dark mode"
     );
 }
 
 themeToggle?.addEventListener("click", () => {
-    const isDark = root.dataset.theme === "dark";
-    const nextTheme = isDark ? "light" : "dark";
+    const dark = root.dataset.theme === "dark";
+    const theme = dark ? "light" : "dark";
 
-    root.dataset.theme = nextTheme;
-    localStorage.setItem("theme", nextTheme);
+    root.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
 
     updateThemeIcon();
 });
 
 updateThemeIcon();
 
-const fadeElements = document.querySelectorAll(".fade-in");
+/* --------------------------------------------------
+   SMOOTH ANCHOR LINKS
+-------------------------------------------------- */
 
-const observer = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    },
-    {
-        threshold: 0.12
-    }
-);
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(link => {
+        link.addEventListener("click", event => {
+            const selector = link.getAttribute("href");
+            const target = document.querySelector(selector);
 
-fadeElements.forEach(element => observer.observe(element));
+            if (!target) return;
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", event => {
-        const target = document.querySelector(link.getAttribute("href"));
+            event.preventDefault();
 
-        if (!target) return;
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
         });
     });
-});
+
+/* --------------------------------------------------
+   SCROLL REVEAL
+-------------------------------------------------- */
+
+const animatedElements =
+    document.querySelectorAll(".fade-in");
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+} else {
+    animatedElements.forEach(element => {
+        element.classList.add("visible");
+    });
+}
+
+/* --------------------------------------------------
+   ACTIVE NAVIGATION
+-------------------------------------------------- */
+
+const currentPath =
+    window.location.pathname.replace(/\/$/, "");
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+        const linkPath =
+            new URL(link.href).pathname.replace(/\/$/, "");
+
+        if (linkPath === currentPath) {
+            link.classList.add("active");
+        }
+    });
 
